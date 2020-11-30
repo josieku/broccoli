@@ -4,14 +4,16 @@ import './index.scss';
 const API_URL = "https://l94wc2001h.execute-api.ap-southeast-2.amazonaws.com/prod/fake-auth";
 
 function Modal(props: { show: string; onClose: ()=>void }) {
-    const [error, setError] = useState("");
-    const [success, setSuccess] = useState(false);
-    const [isPosting, setIsPosting] = useState(false);
+    const [error, setError] = useState(""); // indicates input error
+    const [success, setSuccess] = useState(false); // determines screen displayed
+    const [isPosting, setIsPosting] = useState(false); // determines fetching state
 
-    const [name, setName] = useState("");
+    // input controls
+    const [name, setName] = useState(""); 
     const [email, setEmail] = useState("");
     const [confirmEmail, setConfirmEmail] = useState("");
 
+    // Clears all states (except isPosting).  Used for clearing input form/exiting modal
     const clearStates = () => {
         setError("");
         setSuccess(false);
@@ -20,6 +22,7 @@ function Modal(props: { show: string; onClose: ()=>void }) {
         setConfirmEmail("");
     }
 
+    // Triggers on button click, validates inputs & fires request
     const onClickSend = () => {
         if (name.length === 0 || email.length === 0 || confirmEmail.length === 0){
             return setError("Please fill in all fields");
@@ -34,20 +37,21 @@ function Modal(props: { show: string; onClose: ()=>void }) {
         }
     }
 
+    // Controls procedures when firing request to backend
     const sendRequest = async () => {
-        setError("");
-        setIsPosting(true);
+        setError(""); // clear previous error states
+        setIsPosting(true); 
 
-        await fetch(API_URL, {
+        await fetch(API_URL, { // fire post request with json body
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name, email })
         })
         .then(response => response.json())
         .then(response=>{
-            if (response.errorMessage) {
+            if (response.errorMessage) { // if there is an error
                 setError("Error message from server");
-            } else {
+            } else { // if error free, clear inputs and move to success screen
                 clearStates();
                 setSuccess(true);
             }
@@ -59,11 +63,14 @@ function Modal(props: { show: string; onClose: ()=>void }) {
         })
     }
 
+    // Triggers when the modal background is clicked, or OK button on success screen
     const closeModal = async (e: React.MouseEvent) => {
-        e.stopPropagation();
+        e.stopPropagation(); // stops event chain
+
         if (isPosting) return;
+
         props.onClose();
-        setTimeout(clearStates, 500); // wait to animation to clear
+        setTimeout(clearStates, 500); // wait for animation to clear
     };
 
     return (
@@ -108,7 +115,6 @@ function RequestForm(props: RequestFormProps) {
         <div className="Modal-box request" onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}>
                 <h1>Request an invite</h1>
                 <div className="divider"/>
-                {/* how to turn off autocomplete??? */}
                 <div className="input-container">
                     <input 
                         className="box" 
@@ -159,7 +165,6 @@ function SuccessScreen(props: {close: (e:React.MouseEvent)=>void}) {
                 <p>You'll be one of the first to experience Broccoli {"&"} Co. when we launch.</p>
                 <button 
                     className="box" 
-                    id="ok"
                     onClick={(e: React.MouseEvent)=>props.close(e)}>
                     OK
                 </button>

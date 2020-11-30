@@ -1,17 +1,22 @@
-# Broccoli Co. (Airwallex)
+# Broccoli Co.
 
 This is a single-page React application for the upcoming online service company, Broccoli & Co.  Users can go on the site to request an invitation for when the company officially launches.  
 
 Visit the site at [https://broccoli.surge.sh/](https://broccoli.surge.sh/)!
 
+This web app is written with React 17, Typescript, and SASS. 
+
+## Requirements
+
+* [Node.js](https://nodejs.org/en/)
 ## Install & Run
 
 In the project directory, you can run the following scripts:
 ### `npm start`
-Runs the app in development mode at [http://localhost:3000](http://localhost:3000).
+Runs the app using webpack in development mode at [http://localhost:9000](http://localhost:9000).
 
-### `npm test`
-Launches the Jest test runner in watch mode.
+### `npm run test`
+Launches the Jest test runner in watch mode.  Tests were written using Jest and Enzyme.
 
-### `yarn build`
-Builds the app for production to the build folder.  
+### `npm run build`
+Builds the app for production to the `/dist` folder.  The app is built using Webpack.  

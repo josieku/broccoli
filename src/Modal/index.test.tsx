@@ -92,12 +92,14 @@ describe('input fields field specific validation', () => {
     })
 
     describe("Request handling", () => {
-        const mockSuccessFetchPromise = Promise.resolve({
+        const mockSuccessFetchPromise: Promise<any> = Promise.resolve({
             json: () => Promise.resolve("Registered"),
         });
         const mockFailFetchPromise: Promise<any> = Promise.resolve({ 
             json: () => Promise.resolve({errorMessage: "Bad Request"}),
         });
+
+        const mockErrorFetchPromise: Promise<any> = Promise.resolve(new Error());
 
         const waitForComponentToFetch = async () => {
             await act(async () => {
@@ -119,6 +121,13 @@ describe('input fields field specific validation', () => {
             await waitForComponentToFetch();
             expect(component.find('.Modal-box.success').length).toBe(1);
         })
+
+        it("Request error, shows error message", async () => {
+            jest.spyOn(global, 'fetch').mockImplementation(():Promise<any> => mockErrorFetchPromise);
+            await waitForComponentToFetch();
+            expect(component.find('.input-container.error').childAt(0).props().children).toEqual('Error message from server');
+        })
+    
     })
 
 })

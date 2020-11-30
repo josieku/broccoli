@@ -28,15 +28,6 @@ module.exports = {
                     "sass-loader",
                 ],
             },
-            // {
-            //     test: /\.(png|jpg|gif)$/i,
-            //     use: [{
-            //         loader: 'url-loader',
-            //         options: {
-            //             limit: 8192,
-            //         },
-            //     }, ],
-            // },
             {
                 test: /\.jpe?g$|\.gif$|\.png$|\.PNG$|\.svg$|\.woff(2)?$|\.ttf$|\.eot$/,
                 loader: 'file-loader',
@@ -59,22 +50,11 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './public/index.html',
-            // filename: './public/index.html',
-            favicon: './src/favicon.ico'
+            filename: 'index.html',
+            favicon: './src/assets/favicon.ico'
         }),
         new webpack.ProvidePlugin({
             process: 'process/browser',
-        }),
-        // new WebpackPwaManifest({
-        //     name: 'Broccoli & Co.',
-        //     short_name: 'manifest',
-        //     description: 'Broccoli & Co. Official Website',
-        //     background_color: '#ffffff',
-        //     crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
-        //     icons: [{
-        //         src: path.resolve('src/broccoli.png'),
-        //         sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
-        //     }, ]
-        // })
+        })
     ]
 }

@@ -1,13 +1,22 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Modal from './Modal';
 import Menu from './Menu';
 import MenuButton from './MenuButton';
-import Logo from './broccoli.png';
+import Logo from './assets/broccoli.png';
 import './App.scss';
 
 function App() {
-  const [menuShow, setMenuShow] = useState("");
+  // loading state: "loading" (green), "fade" (fadeout animation), "" (loaded)
+  const [isLoading, setIsLoading] = useState("loading");
+  
+  // menu & modal states: "" (closed), "close" (closing animation), "open" (opened)
+  const [menuShow, setMenuShow] = useState(""); 
   const [modalShow, setModalShow] = useState("");
+
+  useEffect(() => { // set loading states on component mount
+    setTimeout(()=>setIsLoading("fade"), 1000); // start fading after 1s
+    setTimeout(()=>setIsLoading(""), 2000); // clear load screen after 2s
+  }, [])
 
   const closeModal = () => {
     setModalShow("close");
@@ -21,6 +30,7 @@ function App() {
 
   return (
     <div className="App">
+      <div className={`LoadForeground ${isLoading}`}/>
       <header className="App-header">
         <div className="Logo">
           <img src={Logo} alt="Logo"/>

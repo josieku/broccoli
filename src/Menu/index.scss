@@ -51,7 +51,7 @@ $broccoli-green: #5E8433;
                 color: $cream-white;
                 width: 80%;
                 text-decoration: none;
-                font-size: calc(12px + 2vmin);
+                font-size: 2.25em;
                 padding: 0.5em 0.25em 0.5em 0.25em;
                 text-align: center;
                 &:hover {
@@ -79,6 +79,36 @@ $broccoli-green: #5E8433;
     }
     .link-bar {
         transform: translateX(100%);
+    }
+}
+
+@media (min-width: 675px) and (max-width: 1000px) {
+    .Side-menu .link-bar {
+        width: 40%;
+    }
+    .Side-menu .link-bar .links a {
+        font-size: 2em;
+    }
+}
+
+@media (min-width: 400px) and (max-width: 674px) {
+    .Side-menu .link-bar {
+        width: 44%;
+    }
+    .Side-menu .link-bar .links a {
+        font-size: 1.75em;
+    }
+}
+
+@media (max-width: 399px) {
+    .Side-menu .link-bar .top p {
+        padding: 0 0 0 0.25em;
+    }
+    .Side-menu .link-bar {
+        width: 50%;
+    }
+    .Side-menu .link-bar .links a {
+        font-size: 1.5em;
     }
 }
 

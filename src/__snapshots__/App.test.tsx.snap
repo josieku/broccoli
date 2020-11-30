@@ -4,6 +4,9 @@ exports[`renders the component 1`] = `
 <div
   className="App"
 >
+  <div
+    className="LoadForeground loading"
+  />
   <header
     className="App-header"
   >
