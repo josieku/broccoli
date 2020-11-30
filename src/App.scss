@@ -1,0 +1,176 @@
+$cream-white: #EDE8E8;
+$broccoli-green: #5E8433;
+$active-green: #4C6A29;
+.App {
+    position: relative;
+    background: $cream-white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 300px;
+    font-family: SpaceMono;
+    height: 100%;
+    overflow: hidden;
+}
+
+.App-header {
+    height: calc(15vh - 1px);
+    min-height: 75px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+    border-bottom: 1px solid black;
+    padding: 0 5% 0 5%;
+    div.Logo,
+    div.MenuButton {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .Logo {
+        h1 {
+            font-size: 1.75em;
+            cursor: pointer;
+            user-select: none;
+        }
+        img {
+            height: 50%;
+            margin: 0 0.5em 0 0;
+            transform: rotate(-20deg);
+        }
+        &:hover {
+            img {
+                animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+                animation-iteration-count: 2;
+                backface-visibility: hidden;
+                perspective: 1000px;
+            }
+        }
+    }
+}
+
+.App-content {
+    height: 70vh;
+    min-height: 315px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    h1 {
+        // font-size: calc(22px + 2vmin);
+        font-size: 2em;
+        margin: 0;
+    }
+    p {
+        font-size: 1em;
+        margin: 1.5em 0 1.5em 0;
+    }
+    button {
+        background: $broccoli-green;
+        border: 1px solid black;
+        outline: none;
+        padding: 1em;
+        font-family: SpaceMono;
+        cursor: pointer;
+        color: white;
+        font-size: 1em;
+    }
+    button:hover {
+        background: $active-green;
+    }
+    button:active {
+        background: $active-green;
+        border: 1px solid black;
+    }
+}
+
+.App-footer {
+    border-top: 1px solid black;
+    height: calc(15vh - 1px);
+    min-height: 75px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    p {
+        margin: 0 0 0.5em 0;
+        font-size: 0.75em;
+        font-style: italic;
+    }
+}
+
+@media (min-width: 450px) and (max-width: 600px) {
+    .App-header .Logo img {
+        height: 45%;
+    }
+    .App-header .Logo h1 {
+        font-size: 1.5em;
+    }
+    .App-content h1 {
+        font-size: 1.75em;
+    }
+}
+
+@media (min-width: 280px) and (max-width: 449px) {
+    .App-header .Logo img {
+        height: 35%;
+    }
+    .App-header .Logo h1 {
+        font-size: 1em;
+    }
+    .App-content h1 {
+        font-size: 1.5em;
+    }
+    .App-content p,
+    .App-content button {
+        font-size: 0.8em;
+    }
+    .App-footer p {
+        font-size: 0.6em;
+    }
+}
+
+@media (max-width: 279px) {
+    .App-header .Logo img {
+        height: 30%;
+    }
+    .App-header .Logo h1 {
+        font-size: 0.9em;
+    }
+    .App-content h1 {
+        font-size: 1.4em;
+    }
+    .App-content p,
+    .App-content button {
+        font-size: 0.75em;
+    }
+    .App-footer p {
+        font-size: 0.6em;
+    }
+}
+
+@keyframes shake {
+    10%,
+    90% {
+        transform: rotate(-15deg);
+    }
+    20%,
+    80% {
+        transform: rotate(0deg);
+    }
+    30%,
+    50%,
+    70% {
+        transform: rotate(-15deg);
+    }
+    40%,
+    60% {
+        transform: rotate(-30deg);
+    }
+}

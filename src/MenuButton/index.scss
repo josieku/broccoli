@@ -1,0 +1,59 @@
+.App-header .MenuButton {
+    cursor: pointer;
+    border: 1px solid black;
+    height: auto !important;
+    padding: 0.25em 0.5em 0.25em 0.5em;
+    p {
+        font-size: 1.25em;
+        color: black;
+        margin: 0;
+        background: linear-gradient(to left, black, black 50%, grey 50%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 200% 100%;
+        background-position: 100%;
+        transition: background-position 275ms ease;
+    }
+    .menu-ico {
+        margin: 0 0 0 0.5em;
+        .bar {
+            width: 20px;
+            height: 2px;
+            background: black;
+            margin: 0.2em 0 0.2em 0;
+            border-radius: 5px;
+            background: linear-gradient(to left, black 50%, grey 50%);
+            background-size: 200% 100%;
+            background-position: right bottom;
+            transition: 275ms ease;
+        }
+        .bar#top {
+            transition-delay: 200ms;
+        }
+        .bar#middle {
+            transition-delay: 150ms;
+        }
+        .bar#bottom {
+            transition-delay: 100ms;
+        }
+    }
+    &:hover {
+        p,
+        .bar {
+            background-position: left bottom;
+        }
+    }
+}
+
+@media (min-width: 450px) and (max-width: 600px) {
+    .App-header .MenuButton p {
+        font-size: 1em;
+    }
+}
+
+@media (min-width: 200px) and (max-width: 449px) {
+    .App-header .MenuButton p {
+        font-size: 0.75em;
+    }
+}

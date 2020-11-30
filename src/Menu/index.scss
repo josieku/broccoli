@@ -1,0 +1,101 @@
+$cream-white: #EDE8E8;
+$broccoli-green: #5E8433;
+.Side-menu {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    .background {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: black;
+        opacity: 15%;
+    }
+    .link-bar {
+        position: absolute;
+        right: 0;
+        background: $broccoli-green;
+        // border-left: 1px solid black;
+        width: 33%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(100%);
+        .top,
+        .bottom {
+            height: 10%;
+            align-self: flex-start;
+            p {
+                padding: 0 0 0 0.5em;
+                font-size: 4em;
+                color: $cream-white;
+                cursor: pointer;
+                margin: 0;
+                &:hover {
+                    color: #DBD2D2;
+                }
+            }
+        }
+        .links {
+            width: 100%;
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            a {
+                color: $cream-white;
+                width: 80%;
+                text-decoration: none;
+                font-size: calc(12px + 2vmin);
+                padding: 0.5em 0.25em 0.5em 0.25em;
+                text-align: center;
+                &:hover {
+                    color: #DBD2D2;
+                }
+            }
+        }
+    }
+}
+
+.Side-menu.open {
+    z-index: 0;
+    .background {
+        animation: fadein ease 750ms;
+    }
+    .link-bar {
+        transform: translateX(0);
+    }
+}
+
+.Side-menu.close {
+    z-index: 0;
+    .background {
+        animation: fadeout ease 750ms;
+    }
+    .link-bar {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 15%;
+    }
+}
+
+@keyframes fadeout {
+    0% {
+        opacity: 15%;
+    }
+    100% {
+        opacity: 0%;
+    }
+}

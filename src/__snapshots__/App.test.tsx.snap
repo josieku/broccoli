@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the component 1`] = `
+<div
+  className="App"
+>
+  <header
+    className="App-header"
+  >
+    <div
+      className="Logo"
+    >
+      <img
+        alt="Logo"
+        src="broccoli.png"
+      />
+      <h1>
+        BROCCOLI 
+        &
+         CO.
+      </h1>
+    </div>
+    <MenuButton
+      open={[Function]}
+    />
+  </header>
+  <div
+    className="App-content"
+  >
+    <h1>
+      A better way
+    </h1>
+    <h1>
+      to enjoy every day.
+    </h1>
+    <p>
+      Be the first to know when we launch.
+    </p>
+    <button
+      onClick={[Function]}
+    >
+      Request an invite
+    </button>
+  </div>
+  <footer
+    className="App-footer"
+  >
+    <p>
+      Made with 💚 in Shanghai
+    </p>
+    <p>
+      © 2020 Broccoli 
+      &
+       Co. All rights reserved.
+    </p>
+  </footer>
+  <Modal
+    onClose={[Function]}
+    show=""
+  />
+  <Menu
+    onClose={[Function]}
+    show=""
+  />
+</div>
+`;
