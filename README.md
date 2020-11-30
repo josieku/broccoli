@@ -12,6 +12,9 @@ This web app is written with React 17, Typescript, and SASS.
 ## Install & Run
 
 In the project directory, you can run the following scripts:
+
+### `npm install`
+Before running the app, install all its packages.
 ### `npm start`
 Runs the app using webpack in development mode at [http://localhost:9000](http://localhost:9000).
 
